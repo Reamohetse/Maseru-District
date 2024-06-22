@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Website</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <h1 style="color: white;">Maseru District Hospital</h1>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#departments">Departments</a></li>
+        <li><a href="#doctors">Our Doctors</a></li>
+        <li><a href="#appointments">Appointments</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h2 style="color: white;";>Welcome to Maseru District Hospital</h2>
+        <p style="color: aliceblue;">Providing quality healthcare services to our community.</p>
+        <a href="#appointments" class="btn">Book an Appointment</a>
+      </div>
+    </div>
+  </section>
+
+   <!-- Featured Services Section -->
+   <section class="featured-services">
+    <div class="container">
+      <h2>Our Key Services</h2>
+      <div class="service-cards" style="color: black;">
+        <div class="service-card">
+          <h3>Emergency Care</h3>
+          <p>Available 24/7 to provide urgent medical attention.</p>
+        </div>
+        <div class="service-card">
+          <h3>Cardiology</h3>
+          <p>Advanced cardiac care and treatment.</p>
+        </div>
+        <div class="service-card">
+          <h3>Maternity Services</h3>
+          <p>Comprehensive care for expecting mothers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2 style="color: white;">About Us</h2>
+      <div class="about-content">
+        <img src="images/building.jpg" alt="Hospital Building">
+        <div class="about-text">
+          <p>Our mission as Maseru District Hospital is to provide exceptional healthcare services with compassion and dedication. Our vision is to be the leading healthcare provider in the region.</p>
+          <button class="accordion">Our History</button>
+          <div class="panel">
+            <p style="color: black;">Maseru District Hospital has been serving the community since 1957, it was known as Queen II before until now is refered as Maseru District Hospital, Maseru District Hospital has grown from a small clinic to a large, multi-specialty hospital...</p>
+            <img src="images/history.jpg" alt="Our History">
+          </div>
+          <button class="accordion">Mission & Vision</button>
+          <div class="panel">
+            <p style="color: black;">Our mission is to provide high-quality healthcare services with compassion and professionalism...</p>
+            <img src="images/missions.jpg" alt="Mission & Vision">
+          </div>
+          <button class="accordion">Leadership</button>
+          <div class="panel">
+            <p style="color: black;">Meet our leadership team dedicated to guiding the hospital towards excellence...</p>
+            <img src="images/leadership.jpg" alt="Leadership">
+          </div>
+          <button class="accordion">Accreditations & Awards</button>
+          <div class="panel">
+            <p style="color: black;">We are proud to be accredited by Ministry of Health and have received numerous awards for our services...</p>
+            <img src="images/Awards.jpg" alt="Accreditations & Awards">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="container">
+      <h2 style="color: white;">Our Services</h2>
+      <div class="service-cards">
+        <div class="service-card" data-service="emergency">
+          <h3>Emergency Care</h3>
+          <p>24/7 urgent medical attention.</p>
+          <button class="learn-more-btn" onclick="openModal('emergency')">Learn More</button>
+        </div>
+        <div class="service-card" data-service="cardiology">
+          <h3>Cardiology</h3>
+          <p>Advanced cardiac care and treatment.</p>
+          <button class="learn-more-btn" onclick="openModal('cardiology')">Learn More</button>
+        </div>
+        <div class="service-card" data-service="maternity">
+          <h3>Maternity Services</h3>
+          <p>Comprehensive care for expecting mothers.</p>
+          <button class="learn-more-btn" onclick="openModal('maternity')">Learn More</button>
+        </div>
+        <div class="service-card" data-service="orthopedics">
+          <h3>Orthopedics</h3>
+          <p>Expert care for bones, joints, and muscles.</p>
+          <button class="learn-more-btn" onclick="openModal('orthopedics')">Learn More</button>
+        </div>
+        <div class="service-card" data-service="pediatrics">
+          <h3>Pediatrics</h3>
+          <p>Healthcare for children and adolescents.</p>
+          <button class="learn-more-btn" onclick="openModal('pediatrics')">Learn More</button>
+        </div>
+        <div class="service-card" data-service="oncology">
+          <h3>Oncology</h3>
+          <p>Cancer diagnosis and treatment.</p>
+          <button class="learn-more-btn" onclick="openModal('oncology')">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="service-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Departments Section -->
+  <section id="departments">
+    <div class="container">
+      <h2 style="color: white;">Departments</h2>
+      <div class="filter-buttons">
+        <button class="filter-button" onclick="filterDepartments('all')">All</button>
+        <button class="filter-button" onclick="filterDepartments('cardiology')">Cardiology</button>
+        <button class="filter-button" onclick="filterDepartments('pediatrics')">Pediatrics</button>
+        <button class="filter-button" onclick="filterDepartments('orthopedics')">Orthopedics</button>
+        <button class="filter-button" onclick="filterDepartments('neurology')">Neurology</button>
+        <button class="filter-button" onclick="filterDepartments('gynecology')">Gynecology</button>
+        <button class="filter-button" onclick="filterDepartments('dermatology')">Dermatology</button>
+        <button class="filter-button" onclick="filterDepartments('oncology')">Oncology</button>
+        <button class="filter-button" onclick="filterDepartments('radiology')">Radiology</button>
+        <!-- Add more filter buttons as needed -->
+      </div>
+      <div class="department-grid">
+        <div class="department-card cardiology" onclick="openModal('cardiology')">
+          <img src="images/heart.jpg" alt="Cardiology" class="department-image">
+          <h3>Cardiology</h3>
+          <p>Comprehensive heart care and treatments with state-of-the-art facilities.</p>
+        </div>
+        <div class="department-card pediatrics" onclick="openModal('pediatrics')">
+          <img src="images/Pediatrics.jpg" alt="Pediatrics" class="department-image">
+          <h3>Pediatrics</h3>
+          <p>Specialized care for children, ensuring their healthy development.</p>
+        </div>
+        <div class="department-card orthopedics" onclick="openModal('orthopedics')">
+          <img src="images/joints.jpg" alt="Orthopedics" class="department-image">
+          <h3>Orthopedics</h3>
+          <p>Advanced treatments for joint and bone issues, including surgeries.</p>
+        </div>
+        <div class="department-card neurology" onclick="openModal('neurology')">
+          <img src="images/nurse.jpg" alt="Neurology" class="department-image">
+          <h3>Neurology</h3>
+          <p>Comprehensive care for neurological disorders and conditions.</p>
+        </div>
+        <div class="department-card gynecology" onclick="openModal('gynecology')">
+          <img src="images/Gyneology.jpg" alt="Gynecology" class="department-image">
+          <h3>Gynecology</h3>
+          <p>Specialized care for women's health and reproductive systems.</p>
+        </div>
+        <div class="department-card dermatology" onclick="openModal('dermatology')">
+          <img src="images/skin (2).jpg" alt="Dermatology" class="department-image">
+          <h3>Dermatology</h3>
+          <p>Advanced treatments for skin conditions and diseases.</p>
+        </div>
+        <div class="department-card oncology" onclick="openModal('oncology')">
+          <img src="images/Onorlogy.jpg" alt="Oncology" class="department-image">
+          <h3>Oncology</h3>
+          <p>Comprehensive cancer care and treatment options.</p>
+        </div>
+        <div class="department-card radiology" onclick="openModal('radiology')">
+          <img src="images/Radiology.jpg" alt="Radiology" class="department-image">
+          <h3>Radiology</h3>
+          <p>Advanced imaging services for accurate diagnosis and treatment planning.</p>
+        </div>
+        <!-- Add more department cards as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="department-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-description"></p>
+    </div>
+  </div>
+
+   <!-- Doctors Section -->
+  <section id="doctors" class="Doctors" style="background-color: white;">
+    <div class="container">
+      <h2>Our Doctors</h2>
+      <div class="doctor-gallery">
+        <div class="doctor-card">
+          <img src="images/indian-male-doctor.jpg" alt="Dr. John Doe">
+          <div class="doctor-info">
+            <h3>Dr. John Doe</h3>
+            <p>Specialty: Cardiology</p>
+            <p>Experience: 15 years</p>
+            <p>Email: johndoe@example.com</p>
+          </div>
+        </div>
+        <div class="doctor-card">
+          <img src="images/black-female-doctor-6d6a6c2ec3ae48ceaeeae61f78b7038e.jpg" alt="Dr. Jane Smith">
+          <div class="doctor-info">
+            <h3>Dr. Jane Smith</h3>
+            <p>Specialty: Neurology</p>
+            <p>Experience: 10 years</p>
+            <p>Email: janesmith@example.com</p>
+          </div>
+        </div>
+        <div class="doctor-card">
+          <img src="images/portrait-of-a-happy-young-doctor-in-his-clinic-royalty-free-image-1661432441.jpg" alt="Dr. Robert Brown">
+          <div class="doctor-info">
+            <h3>Dr. Robert Brown</h3>
+            <p>Specialty: Pediatrics</p>
+            <p>Experience: 8 years</p>
+            <p>Email: robertbrown@example.com</p>
+          </div>
+        </div>
+        <div class="doctor-card">
+          <img src="images/30dbc75b8280450b950ba0e7a3fd1879.webp" alt="Dr. Emily Davis">
+          <div class="doctor-info">
+            <h3>Dr. Emily Lebusa</h3>
+            <p>Specialty: Orthopedics</p>
+            <p>Experience: 12 years</p>
+            <p>Email: emilydavis@example.com</p>
+          </div>
+        </div>
+        <div class="doctor-card">
+          <img src="images/depositphotos_647357768-stock-photo-portrait-smiling-black-doctor-arms.jpg" alt="Dr. Michael Wilson">
+          <div class="doctor-info">
+            <h3>Dr. Michael Lebetla</h3>
+            <p>Specialty: Dermatology</p>
+            <p>Experience: 14 years</p>
+            <p>Email: michaelwilson@example.com</p>
+          </div>
+        </div>
+        <div class="doctor-card">
+          <img src="images/depositphotos_240820380-stock-photo-african-american-general-practitioner-working.jpg" alt="Dr. Sarah Johnson">
+          <div class="doctor-info">
+            <h3>Dr. Thabang Mokone</h3>
+            <p>Specialty: General Surgery</p>
+            <p>Experience: 9 years</p>
+            <p>Email: sarahjohnson@example.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <!-- Appointments Section -->
+   <section id="appointments">
+    <div class="container">
+      <h2>Make an Appointment</h2>
+      <form id="appointment-form">
+        <div class="form-group">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="department">Department:</label>
+          <select id="department" name="department" required>
+            <option value="cardiology">Cardiology</option>
+            <option value="pediatrics">Pediatrics</option>
+            <option value="orthopedics">Orthopedics</option>
+            <option value="neurology">Neurology</option>
+            <option value="gynecology">Gynecology</option>
+            <option value="dermatology">Dermatology</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="doctor">Doctor:</label>
+          <select id="doctor" name="doctor" required>
+            <option value="john_smith">Dr. John Smith</option>
+            <option value="jane_doe">Dr. Jane Doe</option>
+            <option value="robert_brown">Dr. Robert Brown</option>
+            <option value="emily_davis">Dr. Emily Davis</option>
+            <option value="michael_white">Dr. Michael White</option>
+            <option value="sarah_green">Dr. Sarah Green</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date">Preferred Date:</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+        <div class="form-group">
+          <label for="time">Preferred Time:</label>
+          <input type="time" id="time" name="time" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Additional Message:</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+      <div id="form-response"></div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2>Contact Us</h2>
+
+      <!-- Grid Layout for Contact Information -->
+      <div class="contact-grid">
+        <!-- About Us -->
+        <div class="contact-item about-us">
+          <h3>About Us</h3>
+          <p>Our mission is to provide exceptional healthcare services with compassion and dedication.</p>
+        </div>
+
+        <!-- Get in Touch -->
+        <div class="contact-item get-in-touch">
+          <h3>Get in Touch</h3>
+          <div class="contact-info">
+            <div class="info-item">
+              <img src="images/location.jpg" alt="Location Icon">
+              <p>MFMP+PVP Kingsway, Maseru, Lesotho</p>
+            </div>
+            <div class="info-item">
+              <img src="images/email.jpg" alt="Email Icon">
+              <p>maserudiscrit@co.za</p>
+            </div>
+            <div class="info-item">
+              <img src="images/phone.png" alt="Phone Icon">
+              <p>2224800</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Opening Hours -->
+        <div class="contact-item opening-hours">
+          <h3>Opening Hours</h3>
+          <p>Monday - Friday: 7:00 AM - 6:00 PM<br>Saturday&Sunday: 8:00 AM - 3:00 PM</p>
+        </div>
+
+        <!-- Subscribe Form -->
+        <div class="contact-item subscribe">
+          <h3>Subscribe to Our Website</h3>
+          <form action="#" method="POST">
+            <input type="email" name="email" placeholder="Your Email Address" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Maseru District Hospital, All rights reserved.</p>
+    </div>
+  </footer>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+
+</body>
+</html>
